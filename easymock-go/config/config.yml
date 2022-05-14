@@ -3,3 +3,6 @@ mysql:
   name: easymock
   user: root
   pass: 123456
+pgsql:
+  name: easymock
+  pass: 123456

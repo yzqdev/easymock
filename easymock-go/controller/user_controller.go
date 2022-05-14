@@ -146,7 +146,7 @@ func Index(c *gin.Context) {
 		color.Danger.Println("断言失败")
 	}
 	color.Red.Println(c.Request.Host)
-	utils.JSON(c, 200, "获取成功", user)
+	utils.JSON(c, http.StatusOK, "获取成功", user)
 }
 func CheckToken(c *gin.Context) {
 	userContext, exist := c.Get("user")
@@ -160,5 +160,5 @@ func CheckToken(c *gin.Context) {
 		color.Danger.Println("断言失败")
 	}
 	color.Red.Println(c.Request.Host)
-	utils.JSON(c, 200, "获取成功", user)
+	utils.JSON(c, http.StatusOK, "获取成功", user)
 }

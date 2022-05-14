@@ -5,7 +5,7 @@ import (
 )
 
 type Group struct {
-	Id int `json:"id"`
+	BaseModel
 }
 
 func (group *Group) QueryProjectList() (result map[string]interface{}) {

@@ -5,7 +5,7 @@ import (
 )
 
 type Mock struct {
-	Id int `json:"id"`
+	BaseModel
 }
 
 func (mock *Mock) QueryProjectList() (result map[string]interface{}) {

@@ -3,7 +3,7 @@ import {ElMessage} from 'element-plus'
 import conf from '@/config/config'
 let router
 const instance = axios.create({
-  baseURL:   `http://localhost:3901/api`,
+  baseURL:   `http://localhost:3901/`,
 
 })
 
