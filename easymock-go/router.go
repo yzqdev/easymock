@@ -9,7 +9,7 @@ import (
 func InitRouter(e *gin.Engine) {
 	e.POST("/dashboard", controller.Dashboard)
 	e.POST("/wallpaper", controller.Wallpaper)
-	baseRouter := e.Group("/u")
+	baseRouter := e.Group("/auth")
 	{
 		baseRouter.POST("/login", controller.Login)
 		baseRouter.POST("/reg", controller.Register)
