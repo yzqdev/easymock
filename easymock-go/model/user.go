@@ -1,12 +1,16 @@
 package model
 
 import (
+	"easymock/utils"
+	"fmt"
 	"github.com/gookit/color"
+	"github.com/rs/xid"
 )
 
 type AdminUser struct {
 	BaseModel
 	Username string `json:"username"`
+	Uid      string `json:"uid"`
 	Password string `json:"password"`
 	Salt     string `json:"salt"`
 }
@@ -19,8 +23,18 @@ func QueryByUsername(username string) (result AdminUser) {
 	return
 
 }
-func SaveUser(data map[string]interface{}) {
+func SaveUser(data *AdminUser) {
 	db := GetDb()
+	node, err := utils.NewNode(1)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	guid := xid.New()
+	// Generate a snowflake ID.
+	id := node.Generate()
+	data.ID = id
+	data.Uid = guid.String()
 	db.Create(data)
 
 }

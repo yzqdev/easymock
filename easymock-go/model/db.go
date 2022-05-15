@@ -2,6 +2,7 @@ package model
 
 import (
 	"easymock/config"
+	"easymock/utils"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	"time"
@@ -11,7 +12,7 @@ type Database struct {
 	*gorm.DB
 }
 type BaseModel struct {
-	ID        uint      `json:"id"gorm:"primarykey"`
+	ID        utils.ID  `json:"id" gorm:"primarykey"`
 	CreatedAt time.Time `json:"created_at"`
 	UpdatedAt time.Time `json:"updated_at"`
 }

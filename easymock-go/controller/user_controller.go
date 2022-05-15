@@ -112,11 +112,11 @@ func Register(c *gin.Context) {
 	have := model.GetUserCheck(username)
 	if !have {
 		salt := utils.GetRandomString(4)
-		data := map[string]interface{}{
-			"username": username,
-			"password": utils.MD5(password + salt),
+		data := &model.AdminUser{
+			Username: username,
+			Password: utils.MD5(password + salt),
 
-			"salt": salt,
+			Salt: salt,
 		}
 		model.SaveUser(data)
 
